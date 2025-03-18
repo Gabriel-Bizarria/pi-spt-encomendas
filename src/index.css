@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 p {
-  @apply font-poppins;
+  font-family: "Poppins", sans-serif;
 }

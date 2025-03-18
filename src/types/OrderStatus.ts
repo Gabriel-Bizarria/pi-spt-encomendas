@@ -1,6 +1,6 @@
 enum OrderStatus {
   Pending = "Pendente",
-  Completed = "Concluída",
+  Completed = "Concluído",
 }
 
 export default OrderStatus;
