@@ -1,16 +1,6 @@
-function InputField({ label, type }: { label: string; type: string }) {
-  return (
-    <div className="w-[550px] mb-4">
-      <label className="block text-left mb-1 text-neutral-950">{label}</label>
-      <input
-        type={type}
-        className="w-full p-3 border border-gray-300 rounded"
-      />
-    </div>
-  );
-}
+import InputField from "../components/InputField";
 
-function Login() {
+function LoginPage() {
   return (
     <div className="bg-neutral-50 w-screen h-screen flex items-center justify-center">
       <div className="bg-neutral-300 rounded-lg flex flex-col items-center p-12 px-36 py-16">
@@ -29,4 +19,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;
