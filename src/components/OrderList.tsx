@@ -16,5 +16,5 @@ function OrderList(props: { orders: OrderItemProps[] }) {
     </>
   );
 }
-
+//todo: move input field component to components folder
 export default OrderList;
