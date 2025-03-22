@@ -6,3 +6,36 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.fc-timegrid-now-indicator-arrow {
+  transform: scale(1.5);
+}
+
+.fc .fc-button-primary {
+  @apply bg-green-900 text-white hover:bg-green-800;
+  @apply border-none rounded-xl px-4 py-2;
+}
+
+.fc .fc-button-active {
+  @apply bg-green-700 text-white !important;
+}
+
+.fc-timegrid-now-indicator-line {
+  background-color: red;
+  height: 2px;
+}
+
+.fc .fc-daygrid-day,
+.fc .fc-timegrid-slot {
+  @apply rounded-lg; /* Tailwind class for rounded corners */
+  border: 1px solid #e5e7eb; /* Optional: Add a light border between cells */
+  overflow: hidden; /* Ensure content stays inside rounded corners */
+}
+.fc-view-harness .fc-view-harness-active {
+  @apply rounded-lg;
+}
+.fc-scrollgrid,
+.fc-scrollgrid-liquid {
+  @apply rounded-lg;
+  overflow: hidden;
+}
