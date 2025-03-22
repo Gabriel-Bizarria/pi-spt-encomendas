@@ -1,4 +1,4 @@
-import OrderItemProps from "../utils/OrderItemProps";
+import OrderItemProps from "../pages/Props/OrderItemProps";
 import OrderItem from "./OrderItem";
 function OrderList(props: { orders: OrderItemProps[] }) {
   return (

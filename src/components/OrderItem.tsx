@@ -1,5 +1,5 @@
 import OrderStatus from "../types/OrderStatus";
-import OrderItemProps from "../utils/OrderItemProps";
+import OrderItemProps from "../pages/Props/OrderItemProps";
 
 function OrderItem(props: OrderItemProps) {
   return (

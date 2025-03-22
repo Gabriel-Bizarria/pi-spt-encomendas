@@ -1,4 +1,4 @@
-import OrderStatus from "../types/OrderStatus";
+import OrderStatus from "../../types/OrderStatus";
 
 interface OrderItemProps {
   orderNumber: string;
