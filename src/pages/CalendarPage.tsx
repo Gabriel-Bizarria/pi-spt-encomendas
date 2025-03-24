@@ -32,7 +32,7 @@ function CalendarPage() {
   };
 
   return (
-    <div className="h-full p-9">
+    <div className="h-full w-full p-9">
       <FullCalendar
         plugins={[timegridPlugin, daygridPlugin]}
         initialView="timeGridDay"

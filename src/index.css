@@ -39,3 +39,11 @@ body {
   @apply rounded-lg;
   overflow: hidden;
 }
+
+.fc-scrollgrid-sync-inner {
+  @apply bg-neutral-50 !important; /* Replace with your desired color */
+}
+
+.fc-day-today {
+  @apply bg-emerald-100 !important; /* Replace with your desired color */
+}

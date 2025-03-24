@@ -1,7 +1,7 @@
 // import OrderList from "./components/OrderList";
 // import OrderStatus from "./types/OrderStatus";
 
-import DashboardPage from "./pages/DashboardPage";
+import MainScreen from "./pages/MainScreen";
 
 function App() {
   // return OrderList({
@@ -23,7 +23,7 @@ function App() {
 
   // return LoginPage();
 
-  return <DashboardPage />;
+  return <MainScreen />;
 }
 
 export default App;

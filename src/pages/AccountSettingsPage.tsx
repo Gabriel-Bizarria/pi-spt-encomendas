@@ -11,14 +11,18 @@ function AccountSettingsPage() {
         </li>
 
         <li className="mt-3">
-          <InputField label="Senha atual" type="password" />
+          <InputField labelTop={true} label="Senha atual" type="password" />
         </li>
 
         <li className="mt-3">
-          <InputField label="Nova senha" type="password" />
+          <InputField labelTop={true} label="Nova senha" type="password" />
         </li>
         <li className="mt-3">
-          <InputField label="Confirmar nova senha" type="password" />
+          <InputField
+            labelTop={true}
+            label="Confirmar nova senha"
+            type="password"
+          />
         </li>
         <li className="mt-3">
           <div className="flex bg-neutral-300 rounded-lg px-3 py-6">
