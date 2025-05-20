@@ -1,29 +1,41 @@
-// import OrderList from "./components/OrderList";
-// import OrderStatus from "./types/OrderStatus";
-
-import DashboardPage from "./pages/DashboardPage";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { useAppSelector } from "./redux/hooks";
+import PrivateRoute from "./components/PrivateRoute";
+import LoginPage from "./pages/LoginPage";
+import MainScreen from "./pages/MainScreen";
 
 function App() {
-  // return OrderList({
-  //   orders: [
-  //     {
-  //       orderNumber: "1233290",
-  //       customerName: "Jéssica da Silva",
-  //       orderStatus: OrderStatus.Pending,
-  //       orderDate: "20/01/2022",
-  //     },
-  //     {
-  //       orderNumber: "4563232",
-  //       customerName: "João da Silva",
-  //       orderStatus: OrderStatus.Completed,
-  //       orderDate: "20/01/2022",
-  //     },
-  //   ],
-  // });
+  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
 
-  // return LoginPage();
-
-  return <DashboardPage />;
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            isAuthenticated ? <Navigate to="/dashboard" /> : <LoginPage />
+          }
+        />
+        <Route
+          path="/dashboard/*"
+          element={
+            <PrivateRoute>
+              <MainScreen />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />}
+        />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

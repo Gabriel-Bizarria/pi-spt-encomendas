@@ -1,0 +1,42 @@
+.fc-event {
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-right: 8px !important;
+}
+
+.fc-event .event-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.fc-event:hover .event-buttons {
+  opacity: 1;
+}
+
+.fc-event .edit-button,
+.fc-event .deliver-button {
+  padding: 2px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s;
+}
+
+.fc-event .edit-button:hover,
+.fc-event .deliver-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.fc-event .event-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
