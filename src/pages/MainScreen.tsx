@@ -6,14 +6,11 @@ import OrdersListPage from "./OrderListPage";
 import MenuItems from "../types/MenuItems";
 import { RootState } from "../redux/store";
 import { useSelector } from "react-redux";
-import { LoadingCircle } from "../components/LoadingCircle";
 
 function MainScreen() {
   const activePage = useSelector(
     (state: RootState) => state.navigation.activePage
   );
-
-  const isLoading = useSelector((state: RootState) => state.orders.loading);
 
   const renderPage = () => {
     switch (activePage) {
@@ -37,16 +34,10 @@ function MainScreen() {
       {/* Top app bar */}
       <div className="row-start-1 col-start-2 bg-green-950">
         <HeaderBar />
-      </div>
+      </div>{" "}
       {/* Main content */}
       <div className="row-start-2 col-start-2 bg-neutral-50 w-full h-full">
-        {isLoading ? (
-          <div className="flex justify-center items-center h-full w-full">
-            <LoadingCircle />
-          </div>
-        ) : (
-          renderPage()
-        )}
+        {renderPage()}
       </div>
     </div>
   );

@@ -4,31 +4,52 @@ import { OrderStatus } from "../types/orders/OrderStatus";
 interface OrderItemProps {
   order: Order;
   onUpdate: (order: Order) => void;
+  onEdit: (order: Order) => void;
+  onView: (order: Order) => void;
 }
 
-const OrderItem: React.FC<OrderItemProps> = ({ order, onUpdate }) => {
+const OrderItem: React.FC<OrderItemProps> = ({
+  order,
+  onUpdate,
+  onEdit,
+  onView,
+}) => {
+  const handleItemClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest("button")) {
+      onView(order);
+    }
+  };
   const isDisabled = order.status === OrderStatus.Completed;
 
   return (
-    <div className="flex justify-between rounded-lg bg-neutral-200 pl-[24px] pr-[24px] pt-[15px] pb-[15px] my-2">
+    <div
+      className="flex justify-between rounded-lg bg-neutral-200 pl-[24px] pr-[24px] pt-[15px] pb-[15px] my-2 cursor-pointer hover:bg-neutral-300"
+      onClick={handleItemClick}
+    >
+      {" "}
       <p className="flex flex-1 text-center items-center justify-center font-semibold">
         {order.orderNumber}
       </p>
-
+      <p className="flex flex-[2] text-center items-center justify-center">
+        {order.customerName}
+      </p>
       <div className="flex flex-1 items-center justify-center">
         <span className={getStatusCircleColor(order.status)}></span>
         <p className="text-neutral-950">{order.status}</p>
       </div>
-
-      <p className="flex flex-1 text-center items-center justify-center">
-        {order.status}
-      </p>
-
       <p className="flex flex-1 justify-center text-center items-center">
         {order.orderDate}
-      </p>
-
-      <button className="flex-1 items-center rounded-lg bg-green-950 text-neutral-50 p-0 mx-6">
+      </p>{" "}
+      <button
+        className={`flex-1 items-center rounded-lg text-neutral-50 p-0 mx-6 ${
+          isDisabled
+            ? "bg-gray-500 cursor-not-allowed"
+            : "bg-green-950 hover:bg-green-900"
+        }`}
+        onClick={() => onEdit(order)}
+        disabled={isDisabled}
+      >
         <p>Editar pedido</p>
       </button>
       <button

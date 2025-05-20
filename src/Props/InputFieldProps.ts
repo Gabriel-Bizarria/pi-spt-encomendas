@@ -1,5 +1,9 @@
-export interface InputFieldProps {
+import { InputHTMLAttributes } from "react";
+
+export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   labelTop: boolean;
-  type: string;
   label: string;
+  error?: boolean;
+  errorMessage?: string;
+  max?: number;
 }

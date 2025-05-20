@@ -67,9 +67,17 @@ const ordersSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(updateOrderMocked.fulfilled, (state) => {
+      .addCase(updateOrderMocked.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
+        const index = state.orders.findIndex(
+          (order: Order) => order.orderNumber === action.payload.orderNumber
+        );
+        if (index !== -1) state.orders[index] = action.payload;
+      })
+      .addCase(updateOrderMocked.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message ?? "Failed to update order";
       });
   },
 });
